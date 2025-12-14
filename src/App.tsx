@@ -172,7 +172,7 @@ function App() {
         {ToastComponent}
 
         <footer className="bt-footer">
-          <span>Made with React & Vite • beautiful-toast</span>
+          <span>Made with React & Vite • by - Kushagra Gupta</span>
         </footer>
       </div>
     </div>
