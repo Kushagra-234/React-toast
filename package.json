@@ -1,8 +1,9 @@
 {
-  "name": "beautiful-toast",
+  "name": "beautiful-toast-kg",
   "private": false,
-  "description": "",
+  "description": "Beautiful, customizable toast notifications for React applications.",
   "version": "1.1.0",
+  "author": "Kushagra Gupta <kg7741365@gmail.com>",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",

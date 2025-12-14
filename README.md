@@ -2,10 +2,12 @@
 
 Effortlessly create beautiful, customizable toast notifications for your React applications.
 
+**NPM:** https://www.npmjs.com/package/beautiful-toast-kg
+
 ## Installation
 
 ```bash
-npm i beautiful-toast
+npm i beautiful-toast-kg
 ```
 
 ## Features
