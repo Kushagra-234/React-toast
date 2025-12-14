@@ -1,145 +1,136 @@
-
 # Beautiful Toast
 
-:boom: Effortlessly create stunning and customizable toast notifications for your applications.
-
-![ScreenRecording2024-06-14at11 34 29PM-ezgif com-video-to-gif-converter](https://github.com/naman360/beautiful-toast/assets/40193621/6897bece-3094-43de-8ccd-0fb996f148c4)
-
-
-![ScreenRecording2024-06-14at11 42 34PM-ezgif com-video-to-gif-converter](https://github.com/naman360/beautiful-toast/assets/40193621/701b7dc8-c827-4b2b-8071-88c359d72636)
-
-## Demo
-[Codesandbox Playground](https://codesandbox.io/p/devbox/tender-morning-d75f68)
+Effortlessly create beautiful, customizable toast notifications for your React applications.
 
 ## Installation
 
-```
-$ npm i beautiful-toast
+```bash
+npm i beautiful-toast
 ```
 
 ## Features
-- Super easy to use! ⚡
-- Multi theme support 🌈
-- Progress bar for timer 🕐
-- Limit on number of toasts 🔴
-- Customizable toast icon ✅
-- Customizable toast theme 🎉
 
-## Usage
-**Step 1: Import beautiful-toast**  
+- **Simple API** – just a single `useToast` hook.
+- **Multiple positions** – `top-right`, `top-left`, `bottom-right`, `bottom-left`.
+- **Themes** – `light`, `dark`, `colored`, and fully `custom`.
+- **Progress bar** – built‑in timer bar for each toast.
+- **Max toast limit** – control how many toasts can be visible at once.
+- **Custom icons & styles** – override icon and theme details when needed.
 
-```javascript
+## Quick start
+
+**1. Import the hook**
+
+```ts
 import useToast from "beautiful-toast";
 ```
 
-**Step 2: Initialize the Toast Hook**  
-Use the `useToast` hook to initialize the toast component. Specify the position and the maximum number of toasts to display(**Note:** defaults to no limit). 
+**2. Initialize in your component**
 
-**Step 3: Render toast component**
-```javascript
+```tsx
 function App() {
   const { ToastComponent, showToast } = useToast("bottom-right", 5);
+
   return (
-    <div>{ToastComponent}</div>
-  )
+    <div>
+      {/* mount the toast container once */}
+      {ToastComponent}
+
+      {/* trigger toasts from anywhere in this component tree */}
+      <button
+        onClick={() =>
+          showToast({
+            type: "success",
+            message: "Result successful",
+            description: "Data from API was fetched",
+            theme: "dark",
+            duration: 5000,
+          })
+        }
+      >
+        Show success toast
+      </button>
+    </div>
+  );
 }
 ```
-**Step 4: Create Toasts**  
-Use the `showToast` function to create and display different types of toasts. Below are examples of creating success, info, warning, error and customised toast with different themes.
 
-*Success Toast*  
-```javascript
-<button
-  onClick={() =>
-    showToast({
-      type: "success",
-      message: "Result Successful",
-      description: "Data from API was fetched",
-      theme: "dark",
-      duration: 5000,
-    })
-  }
->
-  Show success
-</button>
+## Examples
+
+All examples assume:
+
+```ts
+const { ToastComponent, showToast } = useToast("bottom-right", 5);
 ```
 
-*Info Toast*  
-```javascript
-<button
-  onClick={() =>
-    showToast({
-      type: "info",
-      message: "This is an info toast",
-      theme: "light",
-      duration: 5000,
-    })
-  }
->
-  Show info
-</button>
+**Success toast**
+
+```tsx
+showToast({
+  type: "success",
+  message: "Result successful",
+  description: "Data from API was fetched",
+  theme: "dark",
+  duration: 5000,
+});
 ```
 
-*Warning Toast*  
-```javascript
-<button
-  onClick={() =>
-    showToast({
-      type: "warning",
-      message: "This is a warning toast",
-      theme: "colored",
-      duration: 5000,
-    })
-  }
->
-  Show warning
-</button>
+**Info toast**
+
+```tsx
+showToast({
+  type: "info",
+  message: "This is an info toast",
+  theme: "light",
+  duration: 5000,
+});
 ```
 
-*Error Toast*  
-```javascript
-<button
-  onClick={() =>
-    showToast({
-      type: "error",
-      message: "This is an error toast",
-      theme: "dark",
-      duration: 5000,
-    })
-  }
->
-  Show error
-</button>
+**Warning toast**
+
+```tsx
+showToast({
+  type: "warning",
+  message: "This is a warning toast",
+  theme: "colored",
+  duration: 5000,
+});
 ```
 
-*Customised Toast*
-```javascript
-<button
-  onClick={() =>
-    showToast({
-      type: "success",
-      message: "This is a customised toast",
-      description: "Data from API is being fetched",
-      theme: "custom",
-      customStyles: {
-        bgColor: "beige",
-        timerColor: "red",
-        timerHeight: "15px",
-        titleColor: "blue",
-        titleSize: "18px",
-        descriptionColor: "blue",
-        descriptionSize: "16pxpx",
-        closeButtonColor: "red",
-        closeButtonSize: "20px",
-      },
-      duration: 5000,
-    })
-  }
->
-  Show Toast
-</button>
+**Error toast**
+
+```tsx
+showToast({
+  type: "error",
+  message: "This is an error toast",
+  theme: "dark",
+  duration: 5000,
+});
 ```
 
+**Custom themed toast**
+
+```tsx
+showToast({
+  type: "success",
+  message: "This is a customised toast",
+  description: "Data from API is being fetched",
+  theme: "custom",
+  customStyles: {
+    bgColor: "beige",
+    timerColor: "red",
+    timerHeight: "15px",
+    titleColor: "blue",
+    titleSize: "18px",
+    descriptionColor: "blue",
+    descriptionSize: "16px",
+    closeButtonColor: "red",
+    closeButtonSize: "20px",
+  },
+  duration: 5000,
+});
+```
 
 ## Contribute
-Show your ❤️ and support by giving a ⭐. Any suggestions are welcome in the issues section.  
+
+Show your ❤️ and support by giving a ⭐. Any suggestions are welcome in the issues section.
